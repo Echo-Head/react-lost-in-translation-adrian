@@ -1,8 +1,69 @@
-.App {
+.NavBar {
+  background-color: #F1A208;
+  position: sticky;
+  color: white;
+  -webkit-text-stroke: 1px black;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.ProfileButton {
+  position: absolute;
+  left: 85.24%;
+  right: 3.56%;
+  top: 20%;
+  bottom: 21.33%;
+}
+
+.Section {
+  background-color: #052F5F;
+  color: white;
+  -webkit-text-stroke: 1px black;
   text-align: center;
 }
 
-.App-logo {
+.Section ul,
+li {
+  list-style-type: none;
+}
+
+@media screen and (min-width: 700px) {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -13,21 +74,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +81,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
