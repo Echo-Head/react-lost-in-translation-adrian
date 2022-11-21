@@ -4,6 +4,7 @@ import { LoginUser } from '../../api/User'
 import { StorageSave } from '../../utils/Storage'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext'
+import { STORAGE_KEY_USER } from '../../const/StorageKeys'
 
 const usernameConfig = {
     required: true,
@@ -23,7 +24,7 @@ const LoginForm = () => {
     // Side Effects
     useEffect(() => {
         if (user !== null) {
-            navigate('Profile')
+            navigate('profile')
         }
     }, [user, navigate])
 
@@ -34,8 +35,8 @@ const LoginForm = () => {
             setApiError(error)
         }
         if (userResponse !== null) {
-            StorageSave('coffee-user', userResponse)
-            setUser(user)
+            StorageSave(STORAGE_KEY_USER, userResponse)
+            setUser(userResponse)
         }
         setLoading(false)
     }
@@ -75,8 +76,6 @@ const LoginForm = () => {
                 {loading && <p>Logging in...</p>}
                 {apiError && <p>{apiError}</p>}
             </form>
-
-
         </>
     )
 }

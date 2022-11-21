@@ -18,12 +18,12 @@ const CheckForUser = async (username) => {
 
 const CreateUser = async (username) => {
     try {
-        const response = fetch(apiUrl, {
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: CreateHeaders(),
             body: JSON.stringify({
                 username,
-                orders: []
+                translations: []
             })
         })
         if (!response.ok) {
