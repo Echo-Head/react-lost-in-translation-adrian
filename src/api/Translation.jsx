@@ -1,7 +1,7 @@
 import { CreateHeaders } from "./Index"
 
-/* const apiUrl = process.env.REACT_APP_API_URL
-const apiKey = process.env.REACT_APP_API_KEY
+const apiUrl = process.env.REACT_APP_API_URL
+/* const apiKey = process.env.REACT_APP_API_KEY
 const userId = 1 // Update user with id 1
 
 fetch(`${apiURL}/translations/${userId}`, {

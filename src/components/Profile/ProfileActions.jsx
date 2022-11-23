@@ -27,11 +27,11 @@ const ProfileActions = ({ logout }) => {
     }
 
     return (
-        <ul>
-            <li><Link to="/translate">Translations</Link></li>
-            <li><button onClick={handleClearHistoryClick}>Clear History</button></li>
-            <li><button onClick={handleLogoutClick}>Logout</button></li>
-        </ul>
+        <div>
+            <button onClick={handleClearHistoryClick}>Clear History</button>
+            <br />
+            <button onClick={handleLogoutClick}>Logout</button>
+        </div>
     )
 }
 

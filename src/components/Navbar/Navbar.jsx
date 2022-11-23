@@ -1,28 +1,30 @@
-import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 
 const Navbar = () => {
 
     const { user } = useUser()
+    /* const navigate = useNavigate()
+
+    useEffect(() => {
+        if (user !== null) {
+            navigate('profile')
+        }
+    }, [user, navigate]) */
 
     return (
-        <nav>
-            <ul>
-                <li>Something</li>
-            </ul>
-
+        <nav className='navBar'>
+            <h1 class="animate__animated animate__bounce">The Signs</h1>
             {user !== null &&
-                <ul>
-                    <li>
-                        <NavLink to="/translate">Translations</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="profile">Profile</NavLink>
-                    </li>
-                </ul>
+                <span className="navButtons">
+                    <NavLink to="profile">Profile</NavLink>
+                    <br />
+                    <NavLink to="/translate">Translations</NavLink>
+                </span>
             }
-
         </nav>
+
     )
 }
 

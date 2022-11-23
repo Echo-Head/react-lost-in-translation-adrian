@@ -9,7 +9,7 @@ import { STORAGE_KEY_USER } from '../../const/StorageKeys'
 const usernameConfig = {
     required: true,
     minLength: 3,
-    maxLength: 30,
+    maxLength: 20,
 }
 
 const LoginForm = () => {
@@ -57,13 +57,13 @@ const LoginForm = () => {
         }
 
         if (errors.username.type === "maxLength") {
-            return <span>Username is too long (max. 30)</span>
+            return <span>Username is too long (max. 20)</span>
         }
     })()
 
     return (
         <>
-            <h2>Login Form</h2>
+            <h2>Please enter a username to continue:</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
