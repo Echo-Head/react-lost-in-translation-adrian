@@ -27,11 +27,11 @@ const ProfileActions = ({ logout }) => {
     }
 
     return (
-        <div>
+        <>
             <button onClick={handleClearHistoryClick}>Clear History</button>
             <br />
             <button onClick={handleLogoutClick}>Logout</button>
-        </div>
+        </>
     )
 }
 

@@ -4,7 +4,6 @@ const Translate = () => {
     return (
         <div className="translate">
             <h2>Translate</h2>
-            <form action=""></form>
         </div>
     )
 }

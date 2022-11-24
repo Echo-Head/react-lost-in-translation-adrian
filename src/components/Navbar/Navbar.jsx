@@ -8,17 +8,18 @@ const Navbar = () => {
 
     return (
         <nav className='navBar'>
-            <h1 class="animate__animated animate__bounce">The Signs</h1>
+
+            <div><h1 class="animate__animated animate__bounce">The Signs</h1></div>
 
             {user !== null &&
                 <>
-                    <span>
+                    <div>
                         <NavLink to="translate">Translate</NavLink>
-                    </span>
+                    </div>
 
-                    <span>
-                        <NavLink to="profile"><img src={profile} alt="" width="55" /></NavLink>
-                    </span>
+                    <div>
+                        <NavLink to="profile"><img src={profile} alt="" width="30" /></NavLink>
+                    </div>
                 </>
             }
         </nav>

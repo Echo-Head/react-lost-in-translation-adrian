@@ -6,12 +6,12 @@ const ProfileTranslateHistory = ({ translations }) => {
         (translation, index) => <ProfileTranslateHistoryItem key={index + '-' + translation} translation={translation} />)
 
     return (
-        <section>
+        <>
             <h4>Here is your translation history:</h4>
             <ul className="historyList">
                 {translationList}
             </ul>
-        </section>
+        </>
     )
 }
 

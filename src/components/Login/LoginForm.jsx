@@ -63,19 +63,15 @@ const LoginForm = () => {
 
     return (
         <>
-            <h2>Please enter a username to continue:</h2>
+            <h3>Please enter a username to continue:</h3>
 
             <form onSubmit={handleSubmit(onSubmit)}>
-                <fieldset>
-                    <span htmlFor="username">Username: </span>
-                    <input
-                        type="text"
-                        placeholder="John Doe"
-                        {...register("username", usernameConfig)} />
-                    <br />
-                    {errorMessage}
-
-                </fieldset>
+                <input
+                    type="text"
+                    placeholder="John Doe"
+                    {...register("username", usernameConfig)} />
+                <br />
+                {errorMessage}
 
                 <button type="submit" disabled={loading}>Continue</button>
 

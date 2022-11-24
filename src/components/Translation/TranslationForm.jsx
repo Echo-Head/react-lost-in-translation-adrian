@@ -8,11 +8,10 @@ import { STORAGE_KEY_USER } from '../../const/StorageKeys'
 
 const usernameConfig = {
     required: true,
-    minLength: 3,
-    maxLength: 20,
+    minLength: 1,
 }
 
-const LoginForm = () => {
+const TranslationForm = () => {
     // Hooks
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { user, setUser } = useUser()
@@ -48,8 +47,8 @@ const LoginForm = () => {
             return null
         }
 
-        if (errors.username.type === "required") {
-            return <span>Username is required</span>
+        if (errors.username.type === "minLength") {
+            return <span>Please enter at least one letter</span>
         }
     })()
 
@@ -77,4 +76,4 @@ const LoginForm = () => {
     )
 }
 
-export default LoginForm;
+export default TranslationForm;
