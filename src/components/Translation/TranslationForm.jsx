@@ -51,35 +51,26 @@ const LoginForm = () => {
         if (errors.username.type === "required") {
             return <span>Username is required</span>
         }
-
-        if (errors.username.type === "minLength") {
-            return <span>Username is too short (min. 3)</span>
-        }
-
-        if (errors.username.type === "maxLength") {
-            return <span>Username is too long (max. 20)</span>
-        }
     })()
 
     return (
         <>
-            <h2>Please enter a username to continue:</h2>
+            <h2>Enter a word or letter to be translated:</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
-                    <span htmlFor="username">Username: </span>
+                    <label htmlFor="username">Username: </label>
                     <input
                         type="text"
                         placeholder="John Doe"
                         {...register("username", usernameConfig)} />
-                    <br />
                     {errorMessage}
 
                 </fieldset>
 
                 <button type="submit" disabled={loading}>Continue</button>
 
-                {loading && <p>Logging in...</p>}
+                {loading && <p>Translating...</p>}
                 {apiError && <p>{apiError}</p>}
             </form>
         </>

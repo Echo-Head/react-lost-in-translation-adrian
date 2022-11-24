@@ -1,4 +1,9 @@
+.body {
+  background-color: #052F5F;
+}
+
 .navBar {
+  // Makes the navbar stick to the top and adds various styling
   position: sticky;
   text-align: center;
   border-radius: 10px;
@@ -7,9 +12,6 @@
   background-color: #F1A208;
   color: white;
   -webkit-text-stroke: 1px black;
-}
-
-.navButtons {
 
   &>:hover {
     background-color: white;
@@ -20,17 +22,32 @@
 .login {
   background-color: #052F5F;
   color: white;
-  -webkit-text-stroke: 1px black;
   text-align: center;
+
+  &>h2 {
+    -webkit-text-stroke: 1px black;
+  }
+
+  &>form,
+  fieldset {
+    border-style: none;
+  }
 }
 
 .profile {
   background-color: #052F5F;
   color: white;
-  -webkit-text-stroke: 1px black;
   text-align: center;
 
-  &>li {
+  &>h1,
+  h2,
+  h4 {
+    -webkit-text-stroke: 1px black;
+
+  }
+
+  &>ul,
+  li {
     list-style-type: none;
   }
 }
@@ -44,6 +61,8 @@
 
 .historyList {
   background-color: #ccddd3;
+  margin: 5em 5em;
+  border-radius: 5px;
 }
 
 .Section {
