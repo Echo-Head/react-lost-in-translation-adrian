@@ -1,28 +1,33 @@
 import { NavLink } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
-import profile from "../../assets/profile-image.svg"
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
+
+    /* const routeChange = () => {
+        let path = `/profile`;
+        navigate(path);
+      }; */
 
     const { user } = useUser()
 
     return (
-        <nav className='navBar'>
+        <div className='navBar'>
 
-            <div><h1 class="animate__animated animate__bounce">The Signs</h1></div>
+            <div className="navTitle">
+                <h1 class="animate__animated animate__bounce">The Signs</h1>
+            </div>
 
             {user !== null &&
                 <>
-                    <div>
+                    <div className="navLinks">
+                        <NavLink to="profile"><CgProfile /></NavLink>
+                        <br />
                         <NavLink to="translate">Translate</NavLink>
-                    </div>
-
-                    <div>
-                        <NavLink to="profile"><img src={profile} alt="" width="30" /></NavLink>
                     </div>
                 </>
             }
-        </nav>
+        </div>
 
     )
 }

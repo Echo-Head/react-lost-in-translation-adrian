@@ -4,20 +4,29 @@
 
 .navBar {
   // Makes the navbar stick to the top and adds various styling
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   position: sticky;
   top: 0;
   background-color: #F1A208;
   color: white;
-  -webkit-text-stroke: 1px black;
-  text-decoration: underline 1px #ffffff;
-  margin: auto;
-  padding-top: 5px;
+  -webkit-text-stroke: 0.3px black;
+  text-decoration: underline 2px #ffffff;
+}
 
-  &>h1 {
-    text-align: center;
-  }
+.navTitle {
+  text-align: center;
+  grid-column: 2/2;
+  font-family: 'Aleo';
+}
+
+.navLinks {
+  grid-column: 3/3;
+}
+
+.profileButtons {
+  background-color: red;
+  color: black;
 }
 
 .login {
@@ -27,12 +36,15 @@
 
   &>h2,
   h3 {
-    -webkit-text-stroke: 1px black;
+    -webkit-text-stroke: 0.9px black;
   }
+}
 
-  &>form {
-    border-style: none;
-  }
+.loginFormSection {
+  background-color: #ccddd3;
+  border: 5px solid #ccddd3;
+  border-radius: 999px;
+  margin: 0% 16%;
 }
 
 .profile {
@@ -57,8 +69,6 @@
     color: black;
     list-style-type: none;
   }
-
-
 }
 
 .translate {
@@ -68,23 +78,35 @@
   text-align: center;
 }
 
+.translationBox {
+  background-color: #ccddd3;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  height: 200px;
+  width: 330px;
+  margin: auto;
+  overflow-y: auto;
+}
+
 .historyList {
   background-color: #ccddd3;
   margin: 5em 5em;
   border-radius: 5px;
 }
 
-.Section {
-  background-color: #052F5F;
-  color: white;
-  -webkit-text-stroke: 1px black;
-  text-align: center;
-}
-
 @media screen and (min-width: 700px) {
-  .navBar {}
+  .loginFormSection {
+    background-color: #ccddd3;
+    border: 5px solid #ccddd3;
+    border-radius: 999px;
+    margin: 0% 37%;
+  }
 
-  .navButtons {}
+  .translationBox {
+    height: 260px;
+    width: 600px;
+  }
 }
 
 

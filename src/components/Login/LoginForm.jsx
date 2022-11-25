@@ -5,6 +5,7 @@ import { StorageSave } from '../../utils/Storage'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../../context/UserContext'
 import { STORAGE_KEY_USER } from '../../const/StorageKeys'
+import { BsFillArrowRightCircleFill } from "react-icons/bs"
 
 const usernameConfig = {
     required: true,
@@ -61,23 +62,28 @@ const LoginForm = () => {
         }
     })()
 
+
     return (
         <>
             <h3>Please enter a username to continue:</h3>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    type="text"
-                    placeholder="John Doe"
-                    {...register("username", usernameConfig)} />
-                <br />
-                {errorMessage}
+            <div className='loginFormSection'>
+                <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        type="text"
+                        placeholder="John Doe"
+                        {...register("username", usernameConfig)} />
 
-                <button type="submit" disabled={loading}>Continue</button>
+                    <button type="submit" disabled={loading}><BsFillArrowRightCircleFill /></button>
+                    <br />
+                    {errorMessage}
 
-                {loading && <p>Logging in...</p>}
-                {apiError && <p>{apiError}</p>}
-            </form>
+                    {loading && <p>Logging in...</p>}
+                    {apiError && <p>{apiError}</p>}
+                </form>
+            </div>
+            <div>
+            </div>
         </>
     )
 }

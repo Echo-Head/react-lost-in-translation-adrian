@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { TranslationClearHistory } from "../../api/Translation";
 import { STORAGE_KEY_USER } from "../../const/StorageKeys";
 import { useUser } from "../../context/UserContext";
-import { StorageDelete } from "../../utils/Storage";
+import { StorageDelete, StorageSave } from "../../utils/Storage";
 
 const ProfileActions = ({ logout }) => {
 
@@ -10,7 +10,6 @@ const ProfileActions = ({ logout }) => {
 
     const handleLogoutClick = () => {
         if (window.confirm('Are you sure?')) {
-            // Send an event to the parent
             StorageDelete(STORAGE_KEY_USER)
             setUser(null)
         }
@@ -20,19 +19,31 @@ const ProfileActions = ({ logout }) => {
         if (!window.confirm('Are you sure?\nThis can not be undone!')) {
             return
         }
-        const [clearError, clearResult] = await TranslationClearHistory(user.id)
-        setUser({
 
-        })
+        const [clearError] = await TranslationClearHistory(user.id)
+
+        if (clearError !== null) {
+            return
+        }
+
+        const updatedUser = {
+            ...user,
+            translations: []
+        }
+
+        StorageSave(updatedUser)
+        setUser(updatedUser)
     }
 
     return (
-        <>
-            <button onClick={handleClearHistoryClick}>Clear History</button>
+        <div>
+            <button className="profileButtons" onClick={handleClearHistoryClick}>Clear History</button>
             <br />
-            <button onClick={handleLogoutClick}>Logout</button>
-        </>
+            <button className="profileButtons" onClick={handleLogoutClick}>Logout</button>
+        </div>
     )
 }
 
 export default ProfileActions;
+
+// <Link to="/translation">Back to translator</Link>

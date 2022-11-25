@@ -1,79 +1,61 @@
-import { useState, useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import { LoginUser } from '../../api/User'
-import { StorageSave } from '../../utils/Storage'
-import { useNavigate } from 'react-router-dom'
-import { useUser } from '../../context/UserContext'
-import { STORAGE_KEY_USER } from '../../const/StorageKeys'
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { TranslateSubmittedText } from "../../api/Translation"
+import { SignsArray } from "../../const/SignArray";
+import { useUser } from "../../context/UserContext";
 
-const usernameConfig = {
-    required: true,
-    minLength: 1,
-}
+export const translatedArray = [];
 
-const TranslationForm = () => {
-    // Hooks
-    const { register, handleSubmit, formState: { errors } } = useForm()
+const TranslationsForm = () => {
+    //Hook
+    const { register, handleSubmit } = useForm();
+
+    //Local state
     const { user, setUser } = useUser()
-    const navigate = useNavigate()
+    const [apiError, setApiError] = useState(null);
 
-    // Local State
-    const [loading, setLoading] = useState(false);
-    const [apiError, setApiError] = useState(null)
-
-    // Side Effects
-    useEffect(() => {
-        if (user !== null) {
-            navigate('profile')
+    const onSubmit = async (data) => {
+        translatedArray.length = 0
+        let splitString = data.translationText.toLowerCase();
+        //These loops will translate users string to sign language
+        for (let i = 0; i < splitString.length; i++) {
+            for (let j = 0; j < SignsArray.length; j++) {
+                if (splitString[i] === SignsArray[j].letter) {
+                    translatedArray.push(SignsArray[j])
+                }
+            }
         }
-    }, [user, navigate])
-
-    const onSubmit = async ({ username }) => {
-        setLoading(true)
-        const [error, userResponse] = await LoginUser(username)
-        if (error !== null) {
-            setApiError(error)
+        if (splitString.length > 0) {
+            const [error, result] = await TranslateSubmittedText(user, splitString)
+            if (error !== null) {
+                setApiError(error);
+            }
+            if (result !== null) {
+                //Adds users string values into global user state
+                setUser({
+                    ...user,
+                    translations: [...user.translations, splitString]
+                });
+            }
         }
-        if (userResponse !== null) {
-            StorageSave(STORAGE_KEY_USER, userResponse)
-            setUser(userResponse)
-        }
-        setLoading(false)
-    }
-
-
-    const errorMessage = (() => {
-        if (!errors.username) {
-            return null
-        }
-
-        if (errors.username.type === "minLength") {
-            return <span>Please enter at least one letter</span>
-        }
-    })()
+    };
 
     return (
-        <>
-            <h2>Enter a word or letter to be translated:</h2>
-
+        <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <fieldset>
-                    <label htmlFor="username">Username: </label>
-                    <input
-                        type="text"
-                        placeholder="John Doe"
-                        {...register("username", usernameConfig)} />
-                    {errorMessage}
+                <h3>Please enter a word or letter to be translated:</h3>
+                <input
+                    type="text"
+                    {...register("translationText")}
+                    placeholder="Hello"
+                />
 
-                </fieldset>
-
-                <button type="submit" disabled={loading}>Continue</button>
-
-                {loading && <p>Translating...</p>}
+                <button type="submit">
+                    Translate
+                </button>
                 {apiError && <p>{apiError}</p>}
             </form>
-        </>
-    )
-}
-
-export default TranslationForm;
+        </div>
+    );
+};
+export default TranslationsForm;
