@@ -24,11 +24,6 @@
   grid-column: 3/3;
 }
 
-.profileButtons {
-  background-color: red;
-  color: black;
-}
-
 .login {
   background-color: #052F5F;
   color: white;
@@ -41,10 +36,28 @@
 }
 
 .loginFormSection {
-  background-color: #ccddd3;
+  /* background-color: #ccddd3;
   border: 5px solid #ccddd3;
   border-radius: 999px;
-  margin: 0% 16%;
+  margin: 0% 16%; */
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #F1A208;
+  height: 50px;
+  padding: 0% 20%;
+  background-color: white;
+}
+
+.loginForm {
+  padding: 5%;
+}
+
+.loginFormInput {
+  border-end-end-radius: 0;
+  border-start-end-radius: 0;
+  border: none;
+  height: 40px;
 }
 
 .profile {
@@ -71,6 +84,16 @@
   }
 }
 
+.profileButtons {
+  background-color: #ccddd3;
+  color: black;
+  font-size: large;
+  border: none;
+  border-radius: 100px;
+  padding: 1% 4.5%;
+  margin: 1.5%;
+}
+
 .translate {
   background-color: #052F5F;
   color: white;
@@ -89,18 +112,29 @@
   overflow-y: auto;
 }
 
+.translateButton {
+  background-color: #ccddd3;
+  color: black;
+  font-size: large;
+  border: none;
+  border-radius: 100px;
+  padding: 1% 4.5%;
+  margin: 1.5%;
+}
+
 .historyList {
   background-color: #ccddd3;
+  padding: 5px;
   margin: 5em 5em;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 700px) {
   .loginFormSection {
-    background-color: #ccddd3;
+    /* background-color: #ccddd3;
     border: 5px solid #ccddd3;
     border-radius: 999px;
-    margin: 0% 37%;
+    margin: 0% 37%; */
   }
 
   .translationBox {

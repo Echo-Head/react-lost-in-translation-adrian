@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { translateSubmitted } from "../../api/translate";
+import { TranslateSubmittedText } from "../../api/Translation";
 import { useUser } from "../../context/UserContext";
 
 export default function Translation() {
@@ -16,7 +16,7 @@ export default function Translation() {
         if (!input) {
             alert("Please type the text you wish translated");
         }
-        const [error, result] = await translateSubmitted(user, input);
+        const [error, result] = await TranslateSubmittedText(user, input);
         console.log("error! " + error);
         //console.log("result! " + JSON.stringify(result.inputs));
         setResults(results + JSON.stringify(result.inputs));
@@ -52,13 +52,11 @@ export default function Translation() {
 
     return (
         <div>
-            <form id="form" onSubmit={e => { e.preventDefault(handleClick()); }}>
+            <form onSubmit={e => { e.preventDefault(handleClick()); }}>
                 <div>
-                    <div className="search">
+                    <div>
                         <input
                             type="translation"
-                            id="exampleInputtranslation"
-                            aria-describedby="translationHelp"
                             placeholder="Enter text"
                             onChange={catchInput}
                         />
@@ -71,8 +69,8 @@ export default function Translation() {
             </form>
 
             <div style={{ display: displayedResult ? "block" : "none" }}>
-                <div id="renderedLetters">{renderedLetters}</div>
-                <p id="displayedResult">{displayedResult}</p>
+                <div>{renderedLetters}</div>
+                <p>{displayedResult}</p>
             </div>
         </div>
     );

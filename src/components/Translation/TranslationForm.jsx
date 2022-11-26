@@ -43,14 +43,13 @@ const TranslationsForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h3>Please enter a word or letter to be translated:</h3>
                 <input
                     type="text"
                     {...register("translationText")}
-                    placeholder="Hello"
+                    placeholder="Enter text..."
                 />
 
-                <button type="submit">
+                <button className="translateButton" type="submit">
                     Translate
                 </button>
                 {apiError && <p>{apiError}</p>}

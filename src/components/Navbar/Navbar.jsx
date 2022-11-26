@@ -21,7 +21,7 @@ const Navbar = () => {
             {user !== null &&
                 <>
                     <div className="navLinks">
-                        <NavLink to="profile"><CgProfile /></NavLink>
+                        <NavLink to="profile">Profile</NavLink>
                         <br />
                         <NavLink to="translate">Translate</NavLink>
                     </div>

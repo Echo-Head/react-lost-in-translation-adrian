@@ -28,7 +28,7 @@ export const TranslateSubmittedText = async (user, translation) => {
 export const TranslationClearHistory = async (userId) => {
     try {
         const response = await fetch(`${apiURL}/${userId}`, {
-            method: 'PATCH',
+            method: 'DELETE',
             headers: CreateHeaders(),
             body: JSON.stringify({
                 translations: []
@@ -37,7 +37,7 @@ export const TranslationClearHistory = async (userId) => {
         if (!response.ok) {
             throw new Error('Could not update translations')
         }
-        const result = await response.json
+        const result = await response.json()
         return [null, result]
 
     } catch (error) {

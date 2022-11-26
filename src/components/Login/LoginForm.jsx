@@ -67,14 +67,17 @@ const LoginForm = () => {
         <>
             <h3>Please enter a username to continue:</h3>
 
-            <div className='loginFormSection'>
+            <div >
                 <form className='loginForm' onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                        type="text"
-                        placeholder="John Doe"
-                        {...register("username", usernameConfig)} />
+                    <div className='loginFormSection'>
+                        <input className='loginFormInput'
+                            type="text"
+                            placeholder="John Doe"
+                            {...register("username", usernameConfig)} />
 
-                    <button type="submit" disabled={loading}><BsFillArrowRightCircleFill /></button>
+                        <button type="submit" disabled={loading}><BsFillArrowRightCircleFill /></button>
+                    </div>
+
                     <br />
                     {errorMessage}
 
