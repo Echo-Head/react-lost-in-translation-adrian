@@ -75,7 +75,9 @@ const LoginForm = () => {
                             placeholder="John Doe"
                             {...register("username", usernameConfig)} />
 
-                        <button type="submit" disabled={loading}><BsFillArrowRightCircleFill /></button>
+                        <div className='loginButtonSection'>
+                            <button type="submit" disabled={loading} className='loginButton'><BsFillArrowRightCircleFill id='loginButtonImage' /></button>
+                        </div>
                     </div>
 
                     <br />

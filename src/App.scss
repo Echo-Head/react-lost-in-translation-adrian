@@ -1,5 +1,5 @@
 .body {
-  background-color: turquoise;
+  background-color: #052F5F;
 }
 
 .navBar {
@@ -12,16 +12,30 @@
   color: white;
   -webkit-text-stroke: 0.3px black;
   text-decoration: underline 2px #ffffff;
+  border-radius: 20px;
+  margin: 0% 2px;
 }
 
 .navTitle {
-  text-align: center;
   grid-column: 2/2;
+  text-align: center;
   font-family: 'Aleo';
 }
 
 .navLinks {
   grid-column: 3/3;
+  margin: 20% 5%;
+  justify-content: center;
+}
+
+.navButtons {
+  background-color: #ccddd3;
+  color: black;
+  font-size: large;
+  border: 2.5px solid black;
+  border-radius: 100px;
+  padding: 1% 4.5%;
+  margin: 1.5%;
 }
 
 .login {
@@ -36,28 +50,40 @@
 }
 
 .loginFormSection {
-  /* background-color: #ccddd3;
-  border: 5px solid #ccddd3;
-  border-radius: 999px;
-  margin: 0% 16%; */
   display: flex;
   align-items: center;
   border-radius: 100px;
-  border: 1px solid #F1A208;
+  border: 2px solid black;
   height: 50px;
-  padding: 0% 20%;
+  padding: 0% 6%;
   background-color: white;
 }
 
 .loginForm {
-  padding: 5%;
+  padding: 0% 2%;
 }
 
 .loginFormInput {
-  border-end-end-radius: 0;
-  border-start-end-radius: 0;
   border: none;
+  height: 35px;
+}
+
+.loginButtonSection {
+  padding-left: 33%;
+}
+
+.loginButton {
+  border: 2.5px solid black;
+  background-color: #ccddd3;
+  border-radius: 100px;
+  width: 50px;
   height: 40px;
+}
+
+#loginButtonImage {
+  padding-top: 2px;
+  width: 27px;
+  height: 27px;
 }
 
 .profile {
@@ -88,7 +114,7 @@
   background-color: #ccddd3;
   color: black;
   font-size: large;
-  border: none;
+  border: 2.5px solid black;
   border-radius: 100px;
   padding: 1% 4.5%;
   margin: 1.5%;
@@ -116,7 +142,7 @@
   background-color: #ccddd3;
   color: black;
   font-size: large;
-  border: none;
+  border: 2.5px solid black;
   border-radius: 100px;
   padding: 1% 4.5%;
   margin: 1.5%;
@@ -130,20 +156,79 @@
 }
 
 @media screen and (min-width: 700px) {
+  .navBar {}
+
   .loginFormSection {
-    /* background-color: #ccddd3;
-    border: 5px solid #ccddd3;
-    border-radius: 999px;
-    margin: 0% 37%; */
+    border: 3px solid black;
+    height: 50px;
+    padding: 0% 6%;
+  }
+
+  .loginForm {
+    padding: 0% 10%;
+  }
+
+  .loginFormInput {
+    height: 35px;
+  }
+
+  .loginButtonSection {
+    padding-left: 60%;
+  }
+
+  .loginButton {
+    width: 4em;
+    height: 3em;
+  }
+
+  #loginButtonImage {
+    padding-top: 2px;
+    width: 27px;
+    height: 27px;
   }
 
   .translationBox {
     height: 260px;
     width: 600px;
   }
+
+  .navButtons {
+    padding: 0% 10%;
+    margin: 1%;
+  }
 }
 
+@media screen and (min-width: 950px) {
+  .navBar {}
 
+  .navButtons {
+    padding: 0% 10%;
+    margin: 1%;
+  }
+
+  .loginFormSection {
+    border: 3px solid black;
+    height: 50px;
+    padding: 0% 6%;
+  }
+
+  .loginForm {
+    padding: 0% 25%;
+  }
+
+  .loginFormInput {
+    height: 35px;
+  }
+
+  .loginButtonSection {
+    padding-left: 55%;
+  }
+
+  .loginButton {
+    width: 4em;
+    height: 3em;
+  }
+}
 
 
 

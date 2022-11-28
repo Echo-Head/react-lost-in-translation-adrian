@@ -1,13 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
-import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
-
-    /* const routeChange = () => {
-        let path = `/profile`;
-        navigate(path);
-      }; */
 
     const { user } = useUser()
 
@@ -21,9 +15,9 @@ const Navbar = () => {
             {user !== null &&
                 <>
                     <div className="navLinks">
-                        <NavLink to="profile">Profile</NavLink>
+                        <NavLink to="profile"><button type="button" className="navButtons">Profile</button></NavLink>
                         <br />
-                        <NavLink to="translate">Translate</NavLink>
+                        <NavLink to="translate"><button type="button" className="navButtons">Translate</button></NavLink>
                     </div>
                 </>
             }
