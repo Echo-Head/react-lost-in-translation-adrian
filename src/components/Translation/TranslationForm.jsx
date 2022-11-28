@@ -43,11 +43,13 @@ const TranslationsForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    type="text"
-                    {...register("translationText")}
-                    placeholder="Enter text..."
-                />
+                <div className="translationInputBox">
+                    <input className="translationInput"
+                        type="text"
+                        {...register("translationText")}
+                        placeholder="Enter text..."
+                    />
+                </div>
 
                 <button className="translateButton" type="submit">
                     Translate

@@ -1,45 +1,41 @@
 .body {
-  background-color: #052F5F;
+  background-color: #AD343E;
 }
 
 .navBar {
   // Makes the navbar stick to the top and adds various styling
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   position: sticky;
   top: 0;
   background-color: #F1A208;
   color: white;
   -webkit-text-stroke: 0.3px black;
   text-decoration: underline 2px #ffffff;
-  border-radius: 20px;
-  margin: 0% 2px;
+  border: 3px solid black;
 }
 
 .navTitle {
-  grid-column: 2/2;
-  text-align: center;
+  margin: 0 auto;
   font-family: 'Aleo';
 }
 
 .navLinks {
-  grid-column: 3/3;
-  margin: 20% 5%;
-  justify-content: center;
+  margin-right: 40px;
 }
 
 .navButtons {
-  background-color: #ccddd3;
+  background-color: #BAD7F2;
   color: black;
-  font-size: large;
   border: 2.5px solid black;
   border-radius: 100px;
-  padding: 1% 4.5%;
-  margin: 1.5%;
+  margin: 1.5%
 }
 
 .login {
-  background-color: #052F5F;
+  background-color: #AD343E;
   color: white;
   text-align: center;
 
@@ -60,24 +56,26 @@
 }
 
 .loginForm {
-  padding: 0% 2%;
+  padding: 0% 7%;
 }
 
 .loginFormInput {
+  outline: none;
   border: none;
   height: 35px;
 }
 
 .loginButtonSection {
-  padding-left: 33%;
+  margin-left: auto;
 }
 
 .loginButton {
   border: 2.5px solid black;
-  background-color: #ccddd3;
+  background-color: #BAD7F2;
+  color: black;
   border-radius: 100px;
-  width: 50px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
 }
 
 #loginButtonImage {
@@ -86,8 +84,12 @@
   height: 27px;
 }
 
+.loggingIn {
+  padding: 1em 1em;
+}
+
 .profile {
-  background-color: #052F5F;
+  background-color: #AD343E;
   color: white;
   text-align: center;
 
@@ -110,37 +112,49 @@
   }
 }
 
+.historyList {
+  background-color: #F1A208;
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 240px;
+  margin: auto;
+  overflow-y: auto;
+}
+
 .profileButtons {
-  background-color: #ccddd3;
+  background-color: #BAD7F2;
   color: black;
   font-size: large;
   border: 2.5px solid black;
   border-radius: 100px;
-  padding: 1% 4.5%;
-  margin: 1.5%;
+  padding: 1% 4%;
+  margin: 0.9%;
 }
 
 .translate {
-  background-color: #052F5F;
+  background-color: #AD343E;
   color: white;
   -webkit-text-stroke: 1px black;
   text-align: center;
 }
 
 .translationBox {
-  background-color: #ccddd3;
-  border: 1px solid black;
+  background-color: #F1A208;
+  border: 2px solid black;
   border-radius: 5px;
   padding: 5px;
   height: 200px;
   width: 330px;
   margin: auto;
+  margin-top: 0.4em;
   overflow-y: auto;
 }
 
 .translateButton {
-  background-color: #ccddd3;
+  background-color: #BAD7F2;
   color: black;
+  -webkit-text-stroke: 0px;
   font-size: large;
   border: 2.5px solid black;
   border-radius: 100px;
@@ -148,43 +162,29 @@
   margin: 1.5%;
 }
 
-.historyList {
-  background-color: #ccddd3;
-  padding: 5px;
-  margin: 5em 5em;
-  border-radius: 10px;
+.translationInputBox {
+  background-color: white;
+  border: solid black;
+  border-radius: 100px;
+  margin: 0.9% 19%;
+  padding: 1%;
+}
+
+.translationInput {
+  outline: none;
+  border: none;
+  -webkit-text-stroke: 0px;
+  font-size: medium;
 }
 
 @media screen and (min-width: 700px) {
-  .navBar {}
-
-  .loginFormSection {
-    border: 3px solid black;
-    height: 50px;
-    padding: 0% 6%;
+  .navButtons {
+    padding: 0% 10%;
+    margin: 1%;
   }
 
   .loginForm {
-    padding: 0% 10%;
-  }
-
-  .loginFormInput {
-    height: 35px;
-  }
-
-  .loginButtonSection {
-    padding-left: 60%;
-  }
-
-  .loginButton {
-    width: 4em;
-    height: 3em;
-  }
-
-  #loginButtonImage {
-    padding-top: 2px;
-    width: 27px;
-    height: 27px;
+    padding: 0% 25%;
   }
 
   .translationBox {
@@ -192,41 +192,26 @@
     width: 600px;
   }
 
-  .navButtons {
-    padding: 0% 10%;
-    margin: 1%;
+  .translationInputBox {
+    margin: 0.9% 25%;
+  }
+
+  .translationInput {
+    font-size: large;
   }
 }
 
 @media screen and (min-width: 950px) {
-  .navBar {}
-
-  .navButtons {
-    padding: 0% 10%;
-    margin: 1%;
-  }
-
-  .loginFormSection {
-    border: 3px solid black;
-    height: 50px;
-    padding: 0% 6%;
-  }
-
   .loginForm {
-    padding: 0% 25%;
+    padding: 0% 35%;
   }
 
-  .loginFormInput {
-    height: 35px;
+  .translationInputBox {
+    margin: 0.9% 30%;
   }
 
-  .loginButtonSection {
-    padding-left: 55%;
-  }
-
-  .loginButton {
-    width: 4em;
-    height: 3em;
+  .translationInput {
+    font-size: x-large;
   }
 }
 

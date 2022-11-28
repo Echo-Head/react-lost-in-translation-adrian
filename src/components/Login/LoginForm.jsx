@@ -26,7 +26,7 @@ const LoginForm = () => {
     // Side Effects
     useEffect(() => {
         if (user !== null) {
-            navigate('profile')
+            navigate('translate')
         }
     }, [user, navigate])
 
@@ -60,7 +60,7 @@ const LoginForm = () => {
         if (errors.username.type === "maxLength") {
             return <span>Username is too long (max. 20)</span>
         }
-    })()
+    })
 
 
     return (
@@ -72,6 +72,8 @@ const LoginForm = () => {
                     <div className='loginFormSection'>
                         <input className='loginFormInput'
                             type="text"
+                            size="25"
+                            maxLength="20"
                             placeholder="John Doe"
                             {...register("username", usernameConfig)} />
 
@@ -83,7 +85,9 @@ const LoginForm = () => {
                     <br />
                     {errorMessage}
 
-                    {loading && <p>Logging in...</p>}
+                    {loading &&
+                        <p className="loggingIn">Logging in...</p>
+                    }
                     {apiError && <p>{apiError}</p>}
                 </form>
             </div>

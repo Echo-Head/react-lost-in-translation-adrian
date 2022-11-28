@@ -9,7 +9,7 @@ const Profile = () => {
     const { user } = useUser()
 
     return (
-        <div className="profile">
+        <div className="profile animate__animated animate__zoomIn">
             <h2>Profile</h2>
             <ProfileHeader username={user.username} />
             <ProfileTranslateHistory translations={user.translations} />
